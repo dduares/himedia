@@ -1,52 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const headerNav=[
   {
     title:"intro",
-    url:"#intro",
+    url:"#intro"
   },
   {
     title:"skill",
-    url:"#skill",
+    url:"#skill"
   },
   {
     title:"site",
-    url:"#site",
+    url:"#site"
   },
   {
-    title:"portofolio",
-    url:"#port",
+    title:"portfolio",
+    url:"#port"
   },
   {
     title:"contact",
-    url:"#contact",
+    url:"#contact"
   },
+  
 ]
 
-
 const Header = () => {
+  
+  const [show,setShow]=useState(false);
+
+  const toggleMenu=()=>{
+    setShow(pShow=>!pShow)
+  }
+
   return (
     <header id='header'>
       <div className="header_inner">
         <div className="header_logo">
-          <a href="#">portofolio <em>react</em></a>
+          <a href="/">portfolio <em>ks</em></a>
         </div>
-        <nav className='header_nav' aria-label='메인메뉴'>
+        <div className={`header_nav ${show?"show":""}`} role='navigation' aria-label='메인메뉴'>
           <ul>
-            {headerNav.map((nav,key)=>(
-              <li key={key}>
-                <a href={nav.url}>{nav.title}</a>
-              </li>
-            ))}
+            {
+              headerNav.map((nav,key)=>(
+                <li key={key}><a href={nav.url}>{nav.title}</a></li>
+              ))
+            }
+
           </ul>
-        </nav>
-        <div className="header_nav_mobile"
-          id='headerToggle'
-          aria-controls='primary-menu'
-          aria-expanded='false'
-          role='button'
-          tabIndex='0'
-        >
+        </div>
+        <div className="header_nav_mobile" id='headerToggle' aria-controls="primary-menu" aria-expanded={show? 'true':'false'} role='button'tabIndex="0" onClick={toggleMenu}>
           <span></span>
         </div>
       </div>

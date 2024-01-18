@@ -31,7 +31,7 @@
                     top: 72px;
                     min-width: 150px;
                     backdrop-filter: blur(15px);
-                    background-color: rgba(16, 99, 99, 0.1);
+                    background-color:var( --mainBg-color);
                     padding: 20px 0;
                     z-index: 10000;
                     li{

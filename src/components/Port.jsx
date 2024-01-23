@@ -114,12 +114,12 @@ useEffect(()=>{
                           ref={(el) => (sectionsRef).current[key] = el}
                       >
                         <span className="num">{port.num}</span>
-                        <a href={port.site} target="_blank" className="img">
+                        <a href={port.site} target="_blank" className="img" rel='noopener noreferrer'>
                             <img src={port.img} alt={port.alt}/>
                         </a>
                         <h3 className="title">{port.title}</h3>
                         <p className="desc">{port.desc}</p>
-                        <a href={port.site}  target="_blank" className="site">사이트 보기</a>
+                        <a href={port.site}  target="_blank" className="site" rel='noopener noreferrer'>사이트 보기</a>
                     </article>
                     ))}
                     
